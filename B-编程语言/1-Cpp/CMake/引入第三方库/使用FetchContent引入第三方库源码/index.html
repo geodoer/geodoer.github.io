@@ -8,21 +8,27 @@
       
       
       
+        <link rel="canonical" href="https://geodoer.github.io/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/%E4%BD%BF%E7%94%A8FetchContent%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%BA%90%E7%A0%81/">
       
       
-      <link rel="icon" href="/images/logo.svg">
+        <link rel="prev" href="../find_package/">
+      
+      
+        <link rel="next" href="../%E4%BD%BF%E7%94%A8IMPORTED%E5%BC%95%E5%85%A5%E9%A2%84%E7%BC%96%E8%AF%91%E4%B8%94%E4%B8%8D%E6%94%AF%E6%8C%81CMake%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/">
+      
+      <link rel="icon" href="../../../../../images/logo.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
-        <title>知识库</title>
+        <title>使用FetchContent引入第三方库源码 - 知识库</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.9c788c91.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.9c788c91.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -38,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#libigl" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -78,9 +89,9 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/." title="知识库" class="md-header__button md-logo" aria-label="知识库" data-md-component="logo">
+    <a href="../../../../.." title="知识库" class="md-header__button md-logo" aria-label="知识库" data-md-component="logo">
       
-  <img src="/./images/logo.svg" alt="logo">
+  <img src="../../../../../images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -96,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              使用FetchContent引入第三方库源码
             
           </span>
         </div>
@@ -173,7 +184,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="/." class="md-tabs__link">
+    <a href="../../../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -188,7 +199,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="md-tabs__link">
+      <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="md-tabs__link">
         A 计算机图形学
       </a>
     </li>
@@ -197,6 +208,8 @@
       
         
   
+  
+    
   
 
 
@@ -219,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/CUI/CUI%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+      <a href="../../CUI/CUI%E5%91%BD%E4%BB%A4/" class="md-tabs__link md-tabs__link--active">
         B 编程语言
       </a>
     </li>
@@ -246,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/github%E6%89%98%E7%AE%A1%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="md-tabs__link">
+      <a href="../../../../../Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/github%E6%89%98%E7%AE%A1%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="md-tabs__link">
         Z 工具
       </a>
     </li>
@@ -282,9 +295,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="知识库" class="md-nav__button md-logo" aria-label="知识库" data-md-component="logo">
+    <a href="../../../../.." title="知识库" class="md-nav__button md-logo" aria-label="知识库" data-md-component="logo">
       
-  <img src="/./images/logo.svg" alt="logo">
+  <img src="../../../../../images/logo.svg" alt="logo">
 
     </a>
     知识库
@@ -300,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -343,7 +356,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">A 计算机图形学</a>
+          <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">A 计算机图形学</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -448,7 +461,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%B5%84%E6%96%99/%E3%80%8AReal-Time%20Rendering%E3%80%8B/">《Real Time Rendering》</a>
+          <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%B5%84%E6%96%99/%E3%80%8AReal-Time%20Rendering%E3%80%8B/">《Real Time Rendering》</a>
           
         </div>
       
@@ -516,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%BD%BB%E9%87%8F%E5%8C%96/HLOD/" class="md-nav__link">
+      <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%BD%BB%E9%87%8F%E5%8C%96/HLOD/" class="md-nav__link">
         HLOD
       </a>
     </li>
@@ -530,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%BD%BB%E9%87%8F%E5%8C%96/LOD/" class="md-nav__link">
+      <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%BD%BB%E9%87%8F%E5%8C%96/LOD/" class="md-nav__link">
         LOD
       </a>
     </li>
@@ -544,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%BD%BB%E9%87%8F%E5%8C%96/%E8%BD%BB%E9%87%8F%E5%8C%96/" class="md-nav__link">
+      <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%A6%82%E8%BF%B0/%E8%BD%BB%E9%87%8F%E5%8C%96/%E8%BD%BB%E9%87%8F%E5%8C%96/" class="md-nav__link">
         轻量化
       </a>
     </li>
@@ -603,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/Bresenham%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/1-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/Bresenham%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/" class="md-nav__link">
         Bresenham画线算法
       </a>
     </li>
@@ -673,7 +686,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/2-%E5%9B%BE%E5%BD%A2API/OpenGL/">OpenGL</a>
+          <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/2-%E5%9B%BE%E5%BD%A2API/OpenGL/">OpenGL</a>
           
         </div>
       
@@ -755,7 +768,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/2-%E8%BD%AF%E6%B8%B2%E6%9F%93/ssloy-tinyrenderer/">Ssloy tinyrenderer</a>
+          <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/2-%E8%BD%AF%E6%B8%B2%E6%9F%93/ssloy-tinyrenderer/">Ssloy tinyrenderer</a>
           
         </div>
       
@@ -850,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3-%E5%87%A0%E4%BD%95/%E4%BD%93%E7%BD%91%E6%A0%BC/%E4%BD%93%E7%B4%A0%E5%8C%96/" class="md-nav__link">
+      <a href="../../../../../A-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3-%E5%87%A0%E4%BD%95/%E4%BD%93%E7%BD%91%E6%A0%BC/%E4%BD%93%E7%B4%A0%E5%8C%96/" class="md-nav__link">
         体素化
       </a>
     </li>
@@ -884,14 +897,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
         
@@ -899,7 +914,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
           B 编程语言
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -915,14 +930,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
       
       
         
@@ -932,7 +949,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_1" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_3_1" tabindex="0" aria-expanded="true">
           1 Cpp
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -948,14 +965,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1_1" type="checkbox" id="__nav_3_1_1" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1_1" type="checkbox" id="__nav_3_1_1" checked>
       
       
         
@@ -973,7 +992,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_1_1" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_3_1_1" tabindex="0" aria-expanded="true">
           CMake
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1022,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/CUI/CUI%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../../CUI/CUI%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         CUI命令
       </a>
     </li>
@@ -1080,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/GUI/%E5%88%86%E7%BB%84/" class="md-nav__link">
+      <a href="../../GUI/%E5%88%86%E7%BB%84/" class="md-nav__link">
         分组
       </a>
     </li>
@@ -1094,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/GUI/%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0/" class="md-nav__link">
+      <a href="../../GUI/%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0/" class="md-nav__link">
         可选参数
       </a>
     </li>
@@ -1108,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/GUI/%E5%8F%AF%E9%80%89%E9%A1%B9/" class="md-nav__link">
+      <a href="../../GUI/%E5%8F%AF%E9%80%89%E9%A1%B9/" class="md-nav__link">
         可选项
       </a>
     </li>
@@ -1122,7 +1141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/GUI/%E5%9C%A8GUI%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%8F%98%E9%87%8F/" class="md-nav__link">
+      <a href="../../GUI/%E5%9C%A8GUI%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%8F%98%E9%87%8F/" class="md-nav__link">
         在GUI上显示变量
       </a>
     </li>
@@ -1176,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+      <a href="../../%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="md-nav__link">
         工程相关
       </a>
     </li>
@@ -1190,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F/%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+      <a href="../../%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F/%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3/" class="md-nav__link">
         路径相关
       </a>
     </li>
@@ -1246,7 +1265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%8F%98%E9%87%8F/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+      <a href="../../%E5%8F%98%E9%87%8F/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="md-nav__link">
         工程相关
       </a>
     </li>
@@ -1260,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%8F%98%E9%87%8F/%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+      <a href="../../%E5%8F%98%E9%87%8F/%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
         环境相关
       </a>
     </li>
@@ -1274,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%8F%98%E9%87%8F/%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+      <a href="../../%E5%8F%98%E9%87%8F/%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3/" class="md-nav__link">
         路径相关
       </a>
     </li>
@@ -1293,14 +1312,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1_1_5" type="checkbox" id="__nav_3_1_1_5" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1_1_5" type="checkbox" id="__nav_3_1_1_5" checked>
       
       
         
@@ -1314,7 +1335,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_1_1_5" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_3_1_1_5" tabindex="0" aria-expanded="true">
           引入第三方库
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1332,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/find_package/" class="md-nav__link">
+      <a href="../find_package/" class="md-nav__link">
         Find package
       </a>
     </li>
@@ -1344,11 +1365,55 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/%E4%BD%BF%E7%94%A8FetchContent%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%BA%90%E7%A0%81/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          使用FetchContent引入第三方库源码
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         使用FetchContent引入第三方库源码
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#libigl" class="md-nav__link">
+    示例：libigl
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    参考文章
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1360,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/%E4%BD%BF%E7%94%A8IMPORTED%E5%BC%95%E5%85%A5%E9%A2%84%E7%BC%96%E8%AF%91%E4%B8%94%E4%B8%8D%E6%94%AF%E6%8C%81CMake%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="md-nav__link">
+      <a href="../%E4%BD%BF%E7%94%A8IMPORTED%E5%BC%95%E5%85%A5%E9%A2%84%E7%BC%96%E8%AF%91%E4%B8%94%E4%B8%8D%E6%94%AF%E6%8C%81CMake%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="md-nav__link">
         使用IMPORTED引入预编译且不支持CMake的第三方库
       </a>
     </li>
@@ -1374,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/%E4%BD%BF%E7%94%A8INTERFACE%E5%BC%95%E5%85%A5header-only%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="md-nav__link">
+      <a href="../%E4%BD%BF%E7%94%A8INTERFACE%E5%BC%95%E5%85%A5header-only%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="md-nav__link">
         使用INTERFACE引入header only的第三方库
       </a>
     </li>
@@ -1426,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/CMake/%E8%B7%AF%E5%BE%84%E4%B8%8E%E6%96%87%E4%BB%B6/find_path/" class="md-nav__link">
+      <a href="../../%E8%B7%AF%E5%BE%84%E4%B8%8E%E6%96%87%E4%BB%B6/find_path/" class="md-nav__link">
         Find path
       </a>
     </li>
@@ -1516,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/B-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/1-Cpp/%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%A8%A1%E6%9D%BF/print/" class="md-nav__link">
+      <a href="../../../%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%A8%A1%E6%9D%BF/print/" class="md-nav__link">
         Print
       </a>
     </li>
@@ -1623,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/github%E6%89%98%E7%AE%A1%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="md-nav__link">
+      <a href="../../../../../Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/github%E6%89%98%E7%AE%A1%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="md-nav__link">
         Github托管静态网站
       </a>
     </li>
@@ -1657,7 +1722,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/mkdocs/">Mkdocs</a>
+          <a href="../../../../../Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/mkdocs/">Mkdocs</a>
           
             <label for="__nav_4_1_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1680,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/mkdocs/mkdocs-material/" class="md-nav__link">
+      <a href="../../../../../Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/mkdocs/mkdocs-material/" class="md-nav__link">
         Mkdocs material
       </a>
     </li>
@@ -1726,6 +1791,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#libigl" class="md-nav__link">
+    示例：libigl
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    参考文章
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1736,8 +1823,109 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
+  
 
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">cmake</span>
+      
+    
+      
+      
+        <span class="md-tag">FetchContent</span>
+      
+    
+  </nav>
+
+
+
+
+
+  <h1>使用FetchContent引入第三方库源码</h1>
+
+<p>在cmake3.14版本之后，可以使用<code>FetchContent</code>相关语法下载并引入第三方库源码。</p>
+<p>优点：无需事先将源代码下载到本地，cmake会自动下载源码</p>
+<p>缺点</p>
+<ul>
+<li>若第三方库源码很多，或依赖外网，下载会很慢。例如libigl的下载就很慢（依赖太多）</li>
+<li>第三方库需支持CMake</li>
+</ul>
+<h2 id="libigl">示例：libigl<a class="headerlink" href="#libigl" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── cmake
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   └── libigl.cmake
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── CMakeLists.txt
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── src
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ├── ...
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    └── main.cpp
+</code></pre></div>
+<p>文件：libigl.cmake
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">if</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">igl::core</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nb">return</span><span class="p">()</span><span class="w"> </span><span class="c">#如果已经存在，则退出</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">endif</span><span class="p">()</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c"># 引入FetchContent相关函数</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c"># 通过FetchContent在网上下载源代码</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="s">libigl</span><span class="w">  </span><span class="c">#TARGET名称</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="s">GIT_REPOSITORY</span><span class="w"> </span><span class="s">https://github.com/libigl/libigl.git</span><span class="w"> </span><span class="c">#网址</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="s">GIT_TAG</span><span class="w"> </span><span class="s">v2.4.0</span><span class="w"> </span><span class="c">#tag</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c"># 确保下载成功，并添加到cmake</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">libigl</span><span class="p">)</span>
+</code></pre></div></p>
+<p>文件：CMakeLists.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.16</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">project</span><span class="p">(</span><span class="s">surface_subdivision</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c"># </span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c"># 将cmake目录加入搜索路径</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c">#</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">list</span><span class="p">(</span><span class="s">PREPEND</span><span class="w"> </span><span class="s">CMAKE_MODULE_PATH</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/cmake</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c"># 引入Libigl模块</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">option</span><span class="p">(</span><span class="s">LIBIGL_GLFW</span><span class="w">                </span><span class="s2">&quot;Build target igl::glfw&quot;</span><span class="w">                </span><span class="s">ON</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">option</span><span class="p">(</span><span class="s">LIBIGL_IMGUI</span><span class="w">               </span><span class="s2">&quot;Build target igl::imgui&quot;</span><span class="w">               </span><span class="s">ON</span><span class="p">)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">option</span><span class="p">(</span><span class="s">LIBIGL_COPYLEFT_CGAL</span><span class="w">       </span><span class="s2">&quot;Build target igl_copyleft::cgal&quot;</span><span class="w">       </span><span class="s">ON</span><span class="p">)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nb">include</span><span class="p">(</span><span class="s">libigl</span><span class="p">)</span><span class="w"> </span><span class="c">#引入libigl.cmake文件</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c">#</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c"># 工程代码</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c"># </span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="nb">set</span><span class="p">(</span><span class="s">Project_Include_Dir</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/include&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">Project_Include_Dir</span><span class="o">}</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="nb">file</span><span class="p">(</span><span class="s">GLOB_RECURSE</span><span class="w"> </span><span class="s">Project_Header_Files</span><span class="w"> </span><span class="o">${</span><span class="nv">Project_Include_Dir</span><span class="o">}</span><span class="s">/*.h</span><span class="w"> </span><span class="o">${</span><span class="nv">Project_Include_Dir</span><span class="o">}</span><span class="s">/*.hpp</span><span class="p">)</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="nb">set</span><span class="p">(</span><span class="s">Project_Src_Dir</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/src&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="nb">file</span><span class="p">(</span><span class="s">GLOB_RECURSE</span><span class="w"> </span><span class="s">SRC_FILES</span><span class="w"> </span><span class="o">${</span><span class="nv">Project_Src_Dir</span><span class="o">}</span><span class="s">/*.cpp</span><span class="w"> </span><span class="o">${</span><span class="nv">Project_Src_Dir</span><span class="o">}</span><span class="s">/*.h</span><span class="p">)</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="nb">add_executable</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">SRC_FILES</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">Project_Header_Files</span><span class="o">}</span><span class="p">)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">igl::glfw</span><span class="w"> </span><span class="s">igl::imgui</span><span class="w"> </span><span class="s">igl_copyleft::cgal</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span><span class="c">#直接链接即可</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="c">#</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="c"># VS工程目录</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="c">#</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="c"># 代码分组</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="nb">source_group</span><span class="p">(</span><span class="s">TREE</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="w"> </span><span class="s">FILES</span><span class="w"> </span><span class="o">${</span><span class="nv">SRC_FILES</span><span class="o">}</span><span class="p">)</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="nb">source_group</span><span class="p">(</span><span class="s">TREE</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="w"> </span><span class="s">FILES</span><span class="w"> </span><span class="o">${</span><span class="nv">Project_Header_Files</span><span class="o">}</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="_1">参考文章<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://cmake.org/cmake/help/latest/module/FetchContent.html#id1">https://cmake.org/cmake/help/latest/module/FetchContent.html#id1</a></li>
+</ol>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1753,6 +1941,42 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../find_package/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Find package" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                Find package
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E4%BD%BF%E7%94%A8IMPORTED%E5%BC%95%E5%85%A5%E9%A2%84%E7%BC%96%E8%AF%91%E4%B8%94%E4%B8%8D%E6%94%AF%E6%8C%81CMake%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="md-footer__link md-footer__link--next" aria-label="下一页: 使用IMPORTED引入预编译且不支持CMake的第三方库" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                使用IMPORTED引入预编译且不支持CMake的第三方库
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1804,10 +2028,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.tracking", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "toc.follow", "navigation.top"], "search": "/assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "toc.follow", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.ba449ae6.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
       
     
   </body>
