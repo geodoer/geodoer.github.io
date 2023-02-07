@@ -7,23 +7,19 @@ tinygltf官方使用stb做图片的加载，但是stb支持的图片有限，截
 
 ### 函数申明
 
-TinyGltf官方提供了自定义的图片解析回调函数。
+TinyGltf提供了图片解析的回调函数。
 
 ```cpp
-///
 /// LoadImageDataFunction type. Signature for custom image loading callbacks.
-///
 ///在ParseImage函数中调用
 typedef bool (*LoadImageDataFunction)(Image *, const int, std::string *,
                                       std::string *, int, int,
                                       const unsigned char *, int,
                                       void *user_pointer);
 
-///
 /// WriteImageDataFunction type. Signature for custom image writing callbacks.
 /// The out_uri parameter becomes the URI written to the gltf and may reference
 /// a file or contain a data URI.
-///
 typedef bool (*WriteImageDataFunction)(const std::string *basepath,
                                        const std::string *filename,
                                        const Image *image, bool embedImages,
@@ -35,26 +31,19 @@ typedef bool (*WriteImageDataFunction)(const std::string *basepath,
 在TinyGLTF（glTF解析器上下文）类中，可以设置或移除 **图片读写** 的回调函数
 
 ```cpp
-///
 /// glTF Parser/Serializer context.
-///
 class TinyGLTF
 {
 public:
-  ///
   /// Set callback to use for loading image data
-  ///
   void SetImageLoader(LoadImageDataFunction LoadImageData, void *user_data);
-
-  ///
   /// Set callback to use for writing image data
-  ///
   void SetImageWriter(WriteImageDataFunction WriteImageData, void *user_data);
 };
 ```
 
 ### 默认的读写器
-如果引入了stb_image库，在TinyGLTF（glTF解析器上下文）类中，就会提供默认值。此默认的读写器，正是基于stb_image提供的。
+如果引入了stb_image库，在TinyGLTF（glTF解析器上下文）类中，就会提供初始值。此初始的读写器，正是基于stb_image提供的。
 
 ```cpp
 class TinyGltf
@@ -329,3 +318,104 @@ bool LoadImageData(Image *image, const int image_idx, std::string *err,
 
 ## 示例：集成webp
 
+```cpp
+//读取Image的参数选项
+struct MyLoadImageDataOption
+{
+	// ==== tinygltf::LoadImageData所需参数
+	bool preserve_channels{ false };
+
+	// ==== your options
+	//todo
+} _load_image_option;
+//根据options获取Gltf长下文
+static tinygltf::TinyGLTF _getGltfContext(MyLoadImageDataOption* option = nullptr)
+{
+	tinygltf::TinyGLTF gltf_ctx;
+
+	// Store original JSON string for `extras` and `extensions`
+	//todo: 从_reader_options中读取
+	bool store_original_json_for_extras_and_extensions = false;
+	gltf_ctx.SetStoreOriginalJSONForExtrasAndExtensions(store_original_json_for_extras_and_extensions);
+
+	//使用自定义读取器
+	gltf_ctx.SetImageLoader(&_myLoadImageData, option);
+
+	return gltf_ctx;
+}
+/*
+ *\brief 自定义读取器
+	tiny_gltf默认的读取器是基于stb_image第三方库的，它支持的格式有限，不支持webp、ktx2等
+ */
+static bool _myLoadImageData(tinygltf::Image *image, const int image_idx, 
+							std::string *err, std::string *warn, 
+							int req_width, int req_height,
+							const unsigned char *bytes, int size, 
+							void *user_data)
+{
+	MyLoadImageDataOption my_option;
+	if (user_data) 
+	{
+		my_option = *reinterpret_cast<MyLoadImageDataOption *>(user_data);
+	}
+
+	//webp
+	{
+		bool is_webp = false;
+		is_webp |= image->uri.find("webp")		!= std::string::npos;
+		is_webp |= image->mimeType.find("webp") != std::string::npos;
+
+		if (is_webp)
+		{
+			return _myLoadImageDataWebp(image, image_idx, err, warn, req_width, req_height, bytes, size, my_option);
+		}
+	}
+
+	//todo: ktx2
+
+	//其他格式，还是使用默认的读取器（stb_image）
+	tinygltf::LoadImageDataOption gltf_option;
+	gltf_option.preserve_channels = my_option.preserve_channels;
+	return tinygltf::LoadImageData(image, image_idx, err, warn, req_width, req_height, bytes, size, &gltf_option);
+}
+static bool _myLoadImageDataWebp(tinygltf::Image *image, const int image_idx, 
+								std::string *err, std::string *warn, 
+								int req_width, int req_height,
+								const unsigned char *bytes, int size, 
+								MyLoadImageDataOption option)
+{
+	int bits		= 8;
+	int pixel_type = TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE;
+	int comps		= 4;
+
+	int w, h;
+	uint8_t* data = WebPDecodeRGBA(bytes, size, &w, &h);//默认RGBA
+
+	if (!data)
+	{
+		return false;
+	}
+
+	image->width		= w;
+	image->height		= h;
+	image->component	= comps;
+	image->bits			= bits;
+	image->pixel_type	= pixel_type;
+
+	size_t sizeInBytes = w * h * comps;
+	image->image.resize(sizeInBytes);
+	std::copy(data, data + sizeInBytes, image->image.begin());
+
+	delete data;
+	return true;
+}
+```
+
+使用
+```cpp
+auto gltf_ctx = _getGltfContext(&_load_image_option);
+
+std::string err;
+std::string warn;
+bool ret = gltf_ctx.LoadBinaryFromFile(&_gltf_model, &err, &warn, gbk_path);
+```

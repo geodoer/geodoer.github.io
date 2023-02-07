@@ -1,23 +1,31 @@
 
 gltf的模型坐标系是Y轴向上的，因此它的坐标、矩阵都是基于此坐标系下的。  
-在根节点上加上一个偏移矩阵，将模型坐标系对标到世界坐标系上（Z轴朝上）
+在根节点上加上一个旋转矩阵（绕X轴旋转90°即可），将模型坐标系对标到世界坐标系上（Z轴朝上）
 
-```cpp
-//# Z轴朝上
-if(_do_zaxis_up)
-{
-	auto transform_node = new MatrixTransformNode();
-	
-	Matrixd gltf_to_world_matrix;
-	gltf_to_world_matrix *= Matrixd::rotate(Math::radians(90.0f), Vec3f{ 1,0,0 });	//绕X旋转90°
-	transform_node->setMatrix(gltf_to_world_matrix);
+> Next, for consistency with the _z_-up coordinate system of 3D Tiles, glTFs must be transformed from _y_-up to _z_-up at runtime. This is done by rotating the model about the _x_-axis by π/2 radians. Equivalently, apply the following matrix transform (shown here as row-major):
 
-	transform_node->addChild(_root);
-	_root = transform_node;
-}
+y-up转z-up的矩阵（行优先存储）
+```json
+[
+1.0, 0.0,  0.0, 0.0,
+0.0, 0.0, -1.0, 0.0,
+0.0, 1.0,  0.0, 0.0,
+0.0, 0.0,  0.0, 1.0
+]
 ```
 
-验证：与blender加载glTF的结果一致。
+y-up转z-up的矩阵（列优先存储）
+```json
+[
+1.0,  0.0,  0.0, 0.0,
+0.0,  0.0,  1.0, 0.0,
+0.0, -1.0,  0.0, 0.0,
+0.0,  0.0,  0.0, 1.0
+]
+```
+
+参考链接： https://github.com/CesiumGS/3d-tiles/tree/main/specification#y-up-to-z-up
+
 
 ## 附：查看glTF坐标系的方法
 查看方法：VSCode Gltf Tool工具 > 打开gltf文件 > alt+G打开预览 > 调整Position的XYZ即可发现XYZ
