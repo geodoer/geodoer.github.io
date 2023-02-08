@@ -10,3 +10,8 @@ title: obsidian
 推荐插件
 
 1.  [https://github.com/joethei/obsidian-plantuml](https://github.com/joethei/obsidian-plantuml)
+
+
+## tips
+
+复制不换行：ctrl+shift+v
