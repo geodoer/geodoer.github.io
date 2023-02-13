@@ -35,3 +35,5 @@ BRDF，Bidirectional Reflective Distribution Function，双向反射分布函数
 2. 只有一束与出射光线$\omega_o$拥有相同（被反射）角度的光线会得到1.0这个返回值
 
 【遵守能量守恒定律】对于BRDF，为了实现物理学上的可信度，它必须遵守能量守恒定律，即 反射光线的总和 永远不能超过 入射光线的总量。
+
+- 严格上来说，同样采用$\omega_i$（入射光方向）和$\omega_o$（出射方向）作为输入参数的 Blinn-Phong光照模型也被认为是一个BRDF。然而由于Blinn-Phong模型并没有遵循能量守恒定律，因此它不被认为是基于物理的渲染。
