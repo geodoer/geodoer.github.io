@@ -1,5 +1,3 @@
-现在已经有很好几种BRDF都能近似的得出物体表面对于光的反应，但是几乎所有实时渲染管线使用的都是一种被称为Cook-Torrance BRDF模型。
-
 Cook-Torrance BRDF兼有漫反射和镜面反射两个部分：
 
 $$
@@ -25,3 +23,20 @@ $$
 f_{cook-torrance} = \frac{DFG}{4(\omega_o \cdot n)(\omega_i \cdot n)}
 $$
 
+
+```cpp
+vec3 evaluateSpecular(...)
+{
+	//计算光线达到点p处的能量
+	float radiance = evaluateRadiance(light, pixel); 
+	
+	float NDF = evaluateDistributionGGX(...);  //法线方程  
+	float G   = evaluateGeometrySmith(...);    //几何函数
+	vec3 F    = evaluateFresnelSchlick(...);   //菲涅尔函数
+
+	float denominator = ...;  //根据一些参数计算出一个常量
+	vec3 specular = NDF * G * F / denominator;
+	
+	return specular;
+}
+```
