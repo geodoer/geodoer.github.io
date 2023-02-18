@@ -16,6 +16,7 @@ title: C++日志系统
 | log4cplus | 简洁, 下载的包编译顺利, 测试例子也能顺利运行 |
 | [log4cxx](https://logging.apache.org/log4cxx/latest_stable/) | 臃肿, 需要引用apr(Apache Portable Runtime), 最痛苦的是老是编译不了 |
 | log4cpp | 落后, 最后更新于2017年，编译成功后，使用有异常问题 |
+| spdlog | 性能很好。但内部有很多全局变量，析构可能有问题；很重；有些编译器可能编译不过 |
 
 
 # 相关链接
