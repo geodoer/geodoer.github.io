@@ -29,6 +29,7 @@ int main(int argc, char** argv)
     string modelATransformPath = DATA_PATH "ICP/1_transform.ply";
 
     Mat modelA = loadPLYSimple(modelAPath.c_str(), 1);
+    //Mat是6*N的矩阵，包含N个顶点，6表示：点xyz 法向量xyz
     Mat modelB = loadPLYSimple(modelBPath.c_str(), 1);
 
     /**
@@ -82,6 +83,89 @@ ICP pose [0.9999801698090472, -9.037320064110299e-05, 0.0062969692196677, 1.7658
 ICP Elapsed Time 0.0063701 sec
 ```
 
+## 附：loadPLYSimple
+可参考`loadPLYSimple`函数，将自己的数据结构转成`Mat`。
+
+```cpp
+Mat loadPLYSimple(const char* fileName, int withNormals)
+{
+  Mat cloud;
+  int numVertices = 0;
+  int numCols = 3;
+  int has_normals = 0;
+
+  std::ifstream ifs(fileName);
+
+  if (!ifs.is_open())
+    CV_Error(Error::StsError, String("Error opening input file: ") + String(fileName) + "\n");
+
+  std::string str;
+  while (str.substr(0, 10) != "end_header")
+  {
+    std::vector<std::string> tokens = split(str,' ');
+    if (tokens.size() == 3)
+    {
+      if (tokens[0] == "element" && tokens[1] == "vertex")
+      {
+        numVertices = atoi(tokens[2].c_str());
+      }
+      else if (tokens[0] == "property")
+      {
+        if (tokens[2] == "nx" || tokens[2] == "normal_x")
+        {
+          has_normals = -1;
+          numCols += 3;
+        }
+        else if (tokens[2] == "r" || tokens[2] == "red")
+        {
+          //has_color = true;
+          numCols += 3;
+        }
+        else if (tokens[2] == "a" || tokens[2] == "alpha")
+        {
+          //has_alpha = true;
+          numCols += 1;
+        }
+      }
+    }
+    else if (tokens.size() > 1 && tokens[0] == "format" && tokens[1] != "ascii")
+      CV_Error(Error::StsBadArg, String("Cannot read file, only ascii ply format is currently supported..."));
+    std::getline(ifs, str);
+  }
+  withNormals &= has_normals;
+
+  cloud = Mat(numVertices, withNormals ? 6 : 3, CV_32FC1);
+
+  for (int i = 0; i < numVertices; i++)
+  {
+    float* data = cloud.ptr<float>(i);
+    int col = 0;
+    for (; col < (withNormals ? 6 : 3); ++col)
+    {
+      ifs >> data[col];
+    }
+    for (; col < numCols; ++col)
+    {
+      float tmp;
+      ifs >> tmp;
+    }
+    if (withNormals)
+    {
+      // normalize to unit norm
+      double norm = sqrt(data[3]*data[3] + data[4]*data[4] + data[5]*data[5]);
+      if (norm>0.00001)
+      {
+        data[3]/=static_cast<float>(norm);
+        data[4]/=static_cast<float>(norm);
+        data[5]/=static_cast<float>(norm);
+      }
+    }
+  }
+
+  //cloud *= 5.0f;
+  return cloud;
+}
+```
 
 ## 相关链接
 
