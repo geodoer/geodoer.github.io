@@ -2,7 +2,7 @@
 title: OpenCV
 ---
 
-**OpenCV**的全称是Open Source Computer Vision Library，是一个跨平台的[计算机视觉](https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89 "计算机视觉")库
+**OpenCV** 的全称是Open Source Computer Vision Library，是一个跨平台的[计算机视觉](https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89 "计算机视觉")库
 
 - OpenCV是由[英特尔公司](https://zh.wikipedia.org/wiki/%E8%8B%B1%E7%89%B9%E5%B0%94 "英特尔")发起并参与开发
 - 以[BSD许可证](https://zh.wikipedia.org/wiki/BSD%E8%AE%B8%E5%8F%AF%E8%AF%81 "BSD许可证")授权发行，可以在商业和研究领域中免费使用
