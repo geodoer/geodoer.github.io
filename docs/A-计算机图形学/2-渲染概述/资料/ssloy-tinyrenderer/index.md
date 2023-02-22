@@ -1,6 +1,10 @@
-﻿---
-title: ssloy-tinyrenderer
 ---
+title: TinyRenderer(ssloy)
+tags:  
+  - 软渲染
+---
+
+
 
 ## 相关链接
 1. [https://github.com/ssloy/tinyrenderer](https://github.com/ssloy/tinyrenderer)
