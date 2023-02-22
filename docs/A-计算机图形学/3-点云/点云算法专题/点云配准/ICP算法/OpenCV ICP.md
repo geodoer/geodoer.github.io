@@ -4,9 +4,11 @@ title: OpenCV ICP
 
 ICP用于计算出一个变换矩阵，使一个点云匹配到另一个点云上。
 
+> 依赖：OpenCV contrib（扩展模块）
+
 ## 示例
 ### C++
-![](images/ICP效果图.png)
+![](images/OpenCV_ICP效果图.png)
 
 ```cpp
 #include <iostream>
