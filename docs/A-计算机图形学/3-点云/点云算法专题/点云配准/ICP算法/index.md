@@ -11,6 +11,10 @@ ICP常用的点云精配准算法。
 - ICP, Iterative Closest Point, 迭代最近点。顾名思义，ICP是通过最近邻法来找 **配对点** 的
 - ICP经典论文：[A method for registration of 3-D shapes | IEEE Journals & Magazine | IEEE Xplore](https://ieeexplore.ieee.org/document/121791)
 
+优缺点
+
+- 需要提供一个较好的初值，同时由于算法本身缺陷，最终迭代结果可能会陷入局部最优
+
 ## 原理简介
 ICP 算法流程
 
