@@ -1,26 +1,22 @@
-
-## 引言
 在上一篇文章当中，我们谈到了BRDF公式，它是用来计算一个光源对物体表面的影响结果，在图形学中，这个结果我们通常用RGBA颜色来表示。这一节，将展开谈谈BRDF。
 ![](./../PBR原理/images/PBR原理简介.png)
-
-## BRDF
 
 BRDF帮助我们计算出：**一条光线** 打到物体表面一点上，应该成什么颜色。
 
 - BRDF，Bidirectional Reflective Distribution Function，双向反射分布函数
 
 ### 镜面反射与漫反射
-根据物理定律，我们知道当一束入射光（incident light）打在一个表面上时，将分成两部分：镜面反射（specular reflection）和漫反射（diffuse reflection）。
+根据物理定律，我们知道当一束入射光（incident light）打在一个表面上时，将分成两部分：镜面反射和漫反射。
 
 ![](./../PBR原理/images/光反射性质-反射方向.jpg)
 
-它们还有很多别名，归纳如下
+它们还有很多别名：
 
 - 镜面反射：specular reflection、高光反射
 - 漫反射：diffuse reflection、折射+散射
 
 #### 镜面反射
-根据光的反射定律，当一束光碰撞到物体表面上时，它的一部分能量会沿着与平面法向量的对称方向反射出去，而不进入平面，这一部分即被称为“镜面反射”。
+根据光的反射定律，当一束光碰撞到物体表面上时，它的一部分能量会沿着与平面法向量的对称方向反射出去，而不进入物体，这一部分即被称为“镜面反射”。
 
 ![](./../PBR原理/images/镜面反射.png)
 
@@ -79,9 +75,13 @@ kD *= 1.0 - metallic;       //乘以逆金属度
 
 ### 总结
 根据上面的原理可知，一束光打到物体表面呈现出来的颜色，由两部分构成：漫反射（diffuse）、镜面反射（specular）。
+
 $$
 f_r = k_d * f_{diffuse} + k_s * f_{specular}
 $$
+
+
+关于这两项（$f_{diffuse}$、$f_{specular}$）的求解，其实有很多种公式，因此衍生出了很多种BRDF，每一种都能近似得出 **“物体表面对于光的反应”** ，都很逼真。但是当前很多实时渲染管线使用的都是Cook-Torrance BRDF模型，本文不再赘述，请看后续文章。
 
 伪代码如下：
 ```glsl
@@ -101,5 +101,3 @@ vec3 evaluateBRDF(const PixelParams pixel, const Light light, const PbrMaterial 
 	return kD * diffuse + kS * specular;
 }
 ```
-
-关于这两项的求解，有很多种公式，因此衍生出了很多种BRDF，每一种都能近似得出“物体表面对于光的反应”，都很逼真。但是当前很多实时渲染管线使用的都是Cook-Torrance BRDF模型，这不在展开。
