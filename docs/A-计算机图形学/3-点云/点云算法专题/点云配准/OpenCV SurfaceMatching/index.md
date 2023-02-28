@@ -2,6 +2,8 @@
 title: OpenCV Surface Matching模块
 ---
 
+> 本章代码地址：[opencv-examples/examples/SurfaceMatching](https://github.com/geodoer/opencv-examples/tree/main/examples/SurfaceMatching)
+
 ## 问题定义
 
 输入

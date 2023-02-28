@@ -135,6 +135,7 @@ retval, residual, pose = cv.ppf_match_3d_ICP.registerModelToScene(srcPC, dstPC)
 
 ## 示例
 ### C++
+> 完整代码：[opencv-examples/icp.cpp](https://github.com/geodoer/opencv-examples/blob/main/examples/SurfaceMatching/icp.cpp)
 
 ICP的输入数据应是粗配准之后的结果。两个模型应基本重叠，再做ICP，获得精确的变换矩阵。
 
